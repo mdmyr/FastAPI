@@ -10,3 +10,7 @@ def respond():
 @app.get("/about")
 def about():
     return { "This is a about page."}
+
+@app.get("/home")
+def home():
+    return {"Home Page"}
