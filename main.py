@@ -18,9 +18,12 @@ def about():
 ## positioning matters
 
 @app.get("/blog")
-def getblog(limit):
+def getblog(limit,published: bool):
     #F is used to substitubte the parameter
-    return {'data': f'{limit} of the logs'}
+    if published:
+        return {'data': f'{limit} includeds only of published blogs from db'}
+    else:    
+        return {'data': f'{limit} includes of the both published and unpublished blogs from db'}
 
 
 
