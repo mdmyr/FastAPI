@@ -14,17 +14,37 @@ def about():
     } 
     
 
+##fetching limited query, like passing a parameter to the query.
+## positioning matters
+
+@app.get("/blog")
+def getblog(limit):
+    #F is used to substitubte the parameter
+    return {'data': f'{limit} of the logs'}
+
+
+
 @app.get("/blog")
 def home():
     return {
              'data':'blog list'
             }
 
+#fetch unpublshed the blogs
+@app.get("/blog/unpublished")
+def unpublished():
+    #fetch the unpublished
+    return {'data':'Get the published blogs'}
+
+
+
+
+
 
 # fetching blog of certain id.
-
+#making the id as integer 
 @app.get("/blog/{id}")
-def show(id):
+def show(id : int):
     #fetch blog id.
     return {
              'data':id
