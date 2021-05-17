@@ -9,8 +9,30 @@ def respond():
 
 @app.get("/about")
 def about():
-    return { "This is a about page."}
+    return{
+        'data':{ 'name':'This is a about page.'}
+    } 
+    
 
-@app.get("/home")
+@app.get("/blog")
 def home():
-    return {"Home Page"}
+    return {
+             'data':'blog list'
+            }
+
+
+# fetching blog of certain id.
+
+@app.get("/blog/{id}")
+def show(id):
+    #fetch blog id.
+    return {
+             'data':id
+            }
+#fetch comments fo the certain blog dynamic
+
+@app.get("/blog/{id}/comments")
+def comments(id):
+    #fetch comments for the blog id = id
+
+    return{'data': {'1','2'}}
